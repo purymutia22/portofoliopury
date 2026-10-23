@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pury Retno Mutia Satriyanto | Portofolio Profesional</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            600: '#243b53',
+                            800: '#102a43',
+                            900: '#0b192c',
+                            950: '#070f1a',
+                        },
+                        accent: {
+                            gold: '#d4af37',
+                            lightgold: '#f3e5ab',
+                            teal: '#0ea5e9'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-navy-955 bg-navy-950 text-navy-50 antialiased selection:bg-accent-teal selection:text-white">
+
+    <!-- Toast Notification (Replacement for alert) -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-32 opacity-0 transition-all duration-300 bg-emerald-600 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3">
+        <i class="fa-solid fa-circle-check text-xl"></i>
+        <div>
+            <h4 class="font-semibold text-sm">Berhasil!</h4>
+            <p id="toast-message" class="text-xs text-emerald-100">Pesan Anda telah terkirim.</p>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-navy-950/80 backdrop-blur-md border-b border-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo / Name -->
+                <a href="#hero" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-navy-800 flex items-center justify-center font-bold text-white shadow-md group-hover:scale-105 transition-transform">
+                        PR
+                    </div>
+                    <div>
+                        <span class="block font-bold text-sm tracking-wide text-white group-hover:text-accent-teal transition-colors">PURY RETNO M. S.</span>
+                        <span class="block text-xs text-navy-100/60">RMIK & UI/UX Designer</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-navy-100">
+                    <a href="#about" class="hover:text-accent-teal transition-colors">Tentang Saya</a>
+                    <a href="#portfolio" class="hover:text-accent-teal transition-colors">Portofolio</a>
+                    <a href="#skills" class="hover:text-accent-teal transition-colors">Keahlian & Layanan</a>
+                    <a href="#contact" class="hover:text-accent-teal transition-colors">Kontak</a>
+                </nav>
+
+                <!-- CTA Button Desktop -->
+                <div class="hidden md:block">
+                    <a href="#contact" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-all shadow-lg shadow-blue-600/20">
+                        Hubungi Saya
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" aria-label="Toggle Menu" class="md:hidden text-navy-100 hover:text-white p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-b border-navy-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-navy-100 hover:text-accent-teal">Tentang Saya</a>
+            <a href="#portfolio" class="block py-2 text-navy-100 hover:text-accent-teal">Portofolio</a>
+            <a href="#skills" class="block py-2 text-navy-100 hover:text-accent-teal">Keahlian & Layanan</a>
+            <a href="#contact" class="block py-2 text-navy-100 hover:text-accent-teal">Kontak</a>
+            <div class="pt-2">
+                <a href="#contact" class="block text-center w-full py-2.5 rounded-xl bg-blue-600 text-white font-medium text-sm">
+                    Hubungi Saya
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950">
+            <!-- Background Glow Elements -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-72 h-72 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-blue-950 border border-blue-800/50 text-blue-300 text-xs font-semibold mb-6 shadow-inner">
+                    <span class="w-2 h-2 rounded-full bg-accent-teal animate-pulse"></span>
+                    <span>Fresh Graduate • Perekam Medis & Informasi Kesehatan</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                    Pury Retno Mutia Satriyanto
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-navy-100/80 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
+                    Menghubungkan ketepatan data klinis dan manajemen rekam medis dengan pengalaman pengguna (UI/UX) yang intuitif dan modern untuk sistem kesehatan yang lebih efisien dan terpercaya.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-all shadow-xl shadow-blue-600/30 flex items-center justify-center space-x-2">
+                        <span>Hubungi Saya</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                    <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card hover:bg-white/10 text-white font-semibold text-sm transition-all flex items-center justify-center space-x-2">
+                        <i class="fa-regular fa-folder-open text-accent-teal"></i>
+                        <span>Lihat Portofolio</span>
+                    </a>
+                </div>
+
+                <!-- Quick Stats / Badges -->
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-3 gap-6 pt-10 border-t border-navy-800/80 text-left max-w-3xl mx-auto">
+                    <div class="glass-card p-4 rounded-2xl">
+                        <span class="block text-2xl font-bold text-white mb-1">5+</span>
+                        <span class="text-xs text-navy-100/60 font-medium">Proyek RMIK & Desain Selesai</span>
+                    </div>
+                    <div class="glass-card p-4 rounded-2xl">
+                        <span class="block text-2xl font-bold text-white mb-1">100%</span>
+                        <span class="text-xs text-navy-100/60 font-medium">Komitmen Kerahasiaan Data Medis</span>
+                    </div>
+                    <div class="glass-card p-4 rounded-2xl col-span-2 md:col-span-1">
+                        <span class="block text-2xl font-bold text-white mb-1">UI/UX & Branding</span>
+                        <span class="text-xs text-navy-100/60 font-medium">Keahlian Tambahan Kreatif</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Tentang Saya Section -->
+        <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 bg-navy-900/50 border-t border-b border-navy-800/60">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- Image / Visual Profile -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto w-72 h-80 sm:w-80 sm:h-96 rounded-3xl overflow-hidden shadow-2xl border-2 border-blue-600/30">
+                            <img src="https://placehold.co/400x500/102a43/ffffff?text=Pury+Retno+M.S." alt="Pury Retno Mutia Satriyanto" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent opacity-60"></div>
+                            <div class="absolute bottom-4 left-4 right-4 bg-navy-950/80 backdrop-blur-md p-3 rounded-2xl border border-navy-800">
+                                <p class="text-xs font-semibold text-white">Fresh Graduate RMIK</p>
+                                <p class="text-[10px] text-navy-100/70">Universitas / Institusi Kesehatan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bio Text -->
+                    <div class="lg:col-span-7">
+                        <div class="inline-flex items-center space-x-2 text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
+                            <i class="fa-solid fa-user-shield"></i>
+                            <span>Tentang Saya</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+                            Menyeimbangkan Ketepatan Informasi Medis & Estetika Visual Modern
+                        </h2>
+                        <p class="text-navy-100/80 text-base sm:text-lg mb-6 leading-relaxed font-light">
+                            Halo! Saya <strong class="text-white font-semibold">Pury Retno Mutia Satriyanto</strong>, seorang fresh graduate Perekam Medis dan Informasi Kesehatan yang memiliki ketertarikan mendalam pada dunia teknologi kesehatan digital, desain UI/UX, dan visual branding institusi medis.
+                        </p>
+                        <p class="text-navy-100/70 text-sm sm:text-base mb-8 leading-relaxed">
+                            Saya menggabungkan latar belakang akademik yang kuat dalam pengelolaan rekam medis, koding klinis (ICD-10/ICD-9-CM), dan analisis mutu data dengan keahlian kreatif dalam mendesain antarmuka aplikasi kesehatan yang ramah pengguna. Pendekatan kerja saya selalu berorientasi pada ketelitian, kerahasiaan data pasien, serta efisiensi alur kerja fasilitas pelayanan kesehatan.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="p-2 rounded-lg bg-blue-900/50 text-accent-teal mt-1">
+                                    <i class="fa-solid fa-check text-xs"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Standar & Etika Profesi</h4>
+                                    <p class="text-xs text-navy-100/60 mt-0.5">Mematuhi regulasi rekam medis dan privasi data pasien.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="p-2 rounded-lg bg-blue-900/50 text-accent-teal mt-1">
+                                    <i class="fa-solid fa-check text-xs"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Pendekatan Kreatif</h4>
+                                    <p class="text-xs text-navy-100/60 mt-0.5">Merancang visual & UI/UX bernilai tinggi dan intuitif.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Portofolio/Karya Section -->
+        <section id="portfolio" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-blue-400 text-xs font-bold uppercase tracking-wider mb-2 block">Galeri Karya</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Portofolio Pilihan</h2>
+                <p class="text-navy-100/70 text-sm sm:text-base">
+                    Berikut adalah 5 proyek terbaik yang merefleksikan keahlian saya di bidang rekam medis, analisis data, UI/UX design, dan kesehatan digital.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 overflow-hidden relative bg-blue-950">
+                            <img src="https://placehold.co/600x400/1e3a8a/ffffff?text=SIMRS+Rawat+Jalan" alt="SIMRS Rawat Jalan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 px-3 py-1 bg-navy-950/80 backdrop-blur-md rounded-full text-[10px] font-semibold text-blue-300 border border-blue-800">UI/UX & RMIK</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">Sistem Informasi Pendaftaran Rawat Jalan (SIMRS)</h3>
+                            <p class="text-navy-100/70 text-xs leading-relaxed mb-4">
+                                Desain antarmuka (UI/UX) alur pendaftaran pasien mandiri berbasis digital yang mengintegrasikan validasi nomor rekam medis dan efisiensi antrean klinik.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="openProjectModal('Sistem Informasi Pendaftaran Rawat Jalan', 'Proyek ini berfokus pada perancangan antarmuka pengguna (UI/UX) untuk sistem pendaftaran pasien rawat jalan rumah sakit. Dirancang menggunakan Figma, sistem ini mempermudah petugas dalam memvalidasi nomor rekam medis, mengurangi waktu tunggu pasien, serta memastikan pencatatan identitas terstandar sesuai kaidah RMIK.')" class="w-full py-2.5 rounded-xl bg-blue-900/40 hover:bg-blue-600 text-blue-300 hover:text-white text-xs font-semibold transition-all border border-blue-800/60 flex items-center justify-center space-x-2">
+                            <span>Lihat Detail Proyek</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 overflow-hidden relative bg-blue-950">
+                            <img src="https://placehold.co/600x400/102a43/ffffff?text=Analisis+Ketidaklengkapan+RM" alt="Analisis Ketidaklengkapan RM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 px-3 py-1 bg-navy-950/80 backdrop-blur-md rounded-full text-[10px] font-semibold text-blue-300 border border-blue-800">Analisis Data</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">Analisis Ketidaklengkapan Berkas Rekam Medis (KLPCM)</h3>
+                            <p class="text-navy-100/70 text-xs leading-relaxed mb-4">
+                                Penelitian dan dashboard pelaporan tingkat kelengkapan pengisian resume medis dokter rawat inap guna menjaga mutu pelayanan rumah sakit.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="openProjectModal('Analisis Ketidaklengkapan Berkas Rekam Medis (KLPCM)', 'Analisis komprehensif mengenai evaluasi ketidaklengkapan isi dokumen rekam medis (KLPCM) di bangsal rawat inap. Proyek ini menghasilkan laporan kuantitatif dan kualitatif serta rekomendasi perbaikan SOP pengisian berkas untuk meningkatkan akurasi klaim BPJS Kesehatan.')" class="w-full py-2.5 rounded-xl bg-blue-900/40 hover:bg-blue-600 text-blue-300 hover:text-white text-xs font-semibold transition-all border border-blue-800/60 flex items-center justify-center space-x-2">
+                            <span>Lihat Detail Proyek</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 overflow-hidden relative bg-blue-950">
+                            <img src="https://placehold.co/600x400/1e293b/ffffff?text=Branding+Klinik+Sehat" alt="Branding Klinik Sehat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 px-3 py-1 bg-navy-950/80 backdrop-blur-md rounded-full text-[10px] font-semibold text-blue-300 border border-blue-800">Branding & Desain</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">Visual Branding & Identitas "Klinik Sehat Mandiri"</h3>
+                            <p class="text-navy-100/70 text-xs leading-relaxed mb-4">
+                                Perancangan identitas visual lengkap (logo, palet warna, tipografi, dan panduan stasioneri medis) untuk fasilitas kesehatan pratama.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="openProjectModal('Visual Branding & Identitas Klinik Sehat Mandiri', 'Proyek perancangan brand identity menyeluruh untuk klinik pratama, mencakup pembuatan logo profesional, pedoman penggunaan warna (color palette), desain amplop medis, kop surat resep, hingga kartu berobat pasien yang modern dan ramah.')" class="w-full py-2.5 rounded-xl bg-blue-900/40 hover:bg-blue-600 text-blue-300 hover:text-white text-xs font-semibold transition-all border border-blue-800/60 flex items-center justify-center space-x-2">
+                            <span>Lihat Detail Proyek</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 overflow-hidden relative bg-blue-950">
+                            <img src="https://placehold.co/600x400/0f172a/ffffff?text=Aplikasi+Telemedicine+RME" alt="Aplikasi Telemedicine RME" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 px-3 py-1 bg-navy-950/80 backdrop-blur-md rounded-full text-[10px] font-semibold text-blue-300 border border-blue-800">UI/UX Prototype</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">Prototip Aplikasi Telemedicine & Rekam Medis Elektronik</h3>
+                            <p class="text-navy-100/70 text-xs leading-relaxed mb-4">
+                                Perancangan wireframe dan high-fidelity prototype aplikasi seluler untuk konsultasi dokter serta akses riwayat kesehatan pribadi pasien.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="openProjectModal('Prototip Aplikasi Telemedicine & Rekam Medis Elektronik', 'Desain UI/UX berbasis mobile app yang memungkinkan pasien melihat ringkasan rekam medis mereka sendiri dengan aman, menjadwalkan konsultasi online, dan mengunduh resep digital sesuai standar pertukaran data kesehatan (HL7/FHIR basic).')" class="w-full py-2.5 rounded-xl bg-blue-900/40 hover:bg-blue-600 text-blue-300 hover:text-white text-xs font-semibold transition-all border border-blue-800/60 flex items-center justify-center space-x-2">
+                            <span>Lihat Detail Proyek</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between lg:col-span-2">
+                    <div>
+                        <div class="h-48 overflow-hidden relative bg-blue-950">
+                            <img src="https://placehold.co/800x400/1e3a8a/ffffff?text=Infografis+Edukasi+Kesehatan" alt="Infografis Edukasi Kesehatan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 px-3 py-1 bg-navy-950/80 backdrop-blur-md rounded-full text-[10px] font-semibold text-blue-300 border border-blue-800">Desain Grafis Informasi</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">Seri Infografis Alur Pelayanan & Edukasi Rekam Medis</h3>
+                            <p class="text-navy-100/70 text-xs leading-relaxed mb-4">
+                                Kumpulan infografis edukatif untuk sosialisasi alur pendaftaran BPJS, hak & kewajiban pasien terkait kerahasiaan rekam medis, dan tata cara penyimpanan dokumen.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="openProjectModal('Seri Infografis Alur Pelayanan & Edukasi Rekam Medis', 'Proyek desain grafis informatif yang diterbitkan di area publik rumah sakit dan media sosial. Bertujuan untuk mengedukasi masyarakat mengenai pentingnya menjaga berkas rekam medis dan memperjelas tahapan administrasi layanan kesehatan dengan visual yang menarik.')" class="w-full py-2.5 rounded-xl bg-blue-900/40 hover:bg-blue-600 text-blue-300 hover:text-white text-xs font-semibold transition-all border border-blue-800/60 flex items-center justify-center space-x-2">
+                            <span>Lihat Detail Proyek</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Keahlian & Layanan Section -->
+        <section id="skills" class="py-24 px-4 sm:px-6 lg:px-8 bg-navy-900/50 border-t border-b border-navy-800/60">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-blue-400 text-xs font-bold uppercase tracking-wider mb-2 block">Kompetensi & Solusi</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Keahlian & Layanan</h2>
+                    <p class="text-navy-100/70 text-sm sm:text-base">
+                        Kombinasi keahlian teknis profesional bidang perekam medis serta layanan kreatif desain UI/UX dan branding.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Hard Skills (Keahlian Teknis) -->
+                    <div class="glass-card p-8 rounded-3xl border border-navy-800">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="p-3 rounded-xl bg-blue-950 text-accent-teal border border-blue-800/50">
+                                <i class="fa-solid fa-laptop-medical text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Hard Skills</h3>
+                                <p class="text-xs text-navy-100/60">Keahlian Teknis Perekam Medis & Teknologi</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-5">
+                            <div>
+                                <div class="flex justify-between text-xs font-medium text-navy-100 mb-1.5">
+                                    <span>Manajemen Rekam Medis & Informasi Kesehatan</span>
+                                    <span class="text-accent-teal">95%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-navy-950 overflow-hidden">
+                                    <div class="bg-blue-600 h-full rounded-full" style="width: 95%;"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs font-medium text-navy-100 mb-1.5">
+                                    <span>Koding Klinis (ICD-10 & ICD-9-CM)</span>
+                                    <span class="text-accent-teal">90%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-navy-950 overflow-hidden">
+                                    <div class="bg-blue-600 h-full rounded-full" style="width: 90%;"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs font-medium text-navy-100 mb-1.5">
+                                    <span>Rekam Medis Elektronik (RME / EMR)</span>
+                                    <span class="text-accent-teal">88%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-navy-950 overflow-hidden">
+                                    <div class="bg-blue-600 h-full rounded-full" style="width: 88%;"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs font-medium text-navy-100 mb-1.5">
+                                    <span>UI/UX Design & Wireframing (Figma)</span>
+                                    <span class="text-accent-teal">85%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-navy-950 overflow-hidden">
+                                    <div class="bg-blue-600 h-full rounded-full" style="width: 85%;"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs font-medium text-navy-100 mb-1.5">
+                                    <span>Visual Branding & Graphic Design</span>
+                                    <span class="text-accent-teal">88%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-navy-950 overflow-hidden">
+                                    <div class="bg-blue-600 h-full rounded-full" style="width: 88%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Services (Layanan) -->
+                    <div class="space-y-6 flex flex-col justify-between">
+                        <div class="glass-card p-6 rounded-2xl border border-navy-800 flex items-start space-x-4 hover:border-blue-500/50 transition-all">
+                            <div class="p-3 rounded-xl bg-blue-950 text-accent-teal border border-blue-800/50 shrink-0">
+                                <i class="fa-solid fa-pen-nib text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base mb-1">UI/UX Design untuk Sistem Kesehatan</h4>
+                                <p class="text-navy-100/70 text-xs leading-relaxed">
+                                    Merancang antarmuka aplikasi rekam medis elektronik, portal pendaftaran pasien, dan sistem informasi klinik yang intuitif dan berorientasi pengguna.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl border border-navy-800 flex items-start space-x-4 hover:border-blue-500/50 transition-all">
+                            <div class="p-3 rounded-xl bg-blue-950 text-accent-teal border border-blue-800/50 shrink-0">
+                                <i class="fa-solid fa-bullhorn text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base mb-1">Branding & Desain Grafis Institusi Kesehatan</h4>
+                                <p class="text-navy-100/70 text-xs leading-relaxed">
+                                    Membangun identitas visual yang profesional untuk klinik, apotek, atau fasilitas kesehatan, mulai dari logo hingga infografis edukasi medis.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl border border-navy-800 flex items-start space-x-4 hover:border-blue-500/50 transition-all">
+                            <div class="p-3 rounded-xl bg-blue-950 text-accent-teal border border-blue-800/50 shrink-0">
+                                <i class="fa-solid fa-file-waveform text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base mb-1">Konsultasi Manajemen Rekam Medis</h4>
+                                <p class="text-navy-100/70 text-xs leading-relaxed">
+                                    Evaluasi kelengkapan berkas rekam medis, penataan sistem penyimpanan arsip (filling), serta tata kelola data kesehatan sesuai standar akreditasi.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Kontak Section -->
+        <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- Info Kontak & Socials -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-blue-400 text-xs font-bold uppercase tracking-wider mb-2 block">Hubungi Saya</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Mari Berkolaborasi</h2>
+                        <p class="text-navy-100/70 text-sm leading-relaxed">
+                            Saya terbuka untuk peluang kerja sebagai Perekam Medis, proyek desain UI/UX kesehatan, maupun konsultasi branding institusi kesehatan. Silakan hubungi saya melalui form atau kanal di bawah ini.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <a href="mailto:pury.retno@email.com" class="glass-card p-4 rounded-2xl flex items-center space-x-4 hover:border-blue-500/50 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-blue-950 text-accent-teal flex items-center justify-center border border-blue-800 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-envelope text-lg"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-navy-100/60 font-medium">Email Profesional</span>
+                                <span class="text-sm font-semibold text-white">pury.retno@email.com</span>
+                            </div>
+                        </a>
+
+                        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="glass-card p-4 rounded-2xl flex items-center space-x-4 hover:border-blue-500/50 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-blue-950 text-emerald-400 flex items-center justify-center border border-blue-800 group-hover:scale-105 transition-transform">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-navy-100/60 font-medium">WhatsApp</span>
+                                <span class="text-sm font-semibold text-white">+62 812-3456-7890</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-navy-100/60 mb-4">Profil Profesional & Sosial</h4>
+                        <div class="flex items-center space-x-3">
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-11 h-11 rounded-xl glass-card flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white transition-all border border-navy-800">
+                                <i class="fa-brands fa-linkedin-in text-base"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-11 h-11 rounded-xl glass-card flex items-center justify-center text-pink-400 hover:bg-pink-600 hover:text-white transition-all border border-navy-800">
+                                <i class="fa-brands fa-instagram text-base"></i>
+                            </a>
+                            <a href="mailto:pury.retno@email.com" aria-label="Email" class="w-11 h-11 rounded-xl glass-card flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all border border-navy-800">
+                                <i class="fa-solid fa-envelope text-base"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="glass-card p-8 rounded-3xl border border-navy-800 space-y-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Kirim Pesan</h3>
+                        <p class="text-xs text-navy-100/60 mb-6">Isi formulir di bawah ini dan saya akan merespons secepatnya.</p>
+                        
+                        <div>
+                            <label for="name" class="block text-xs font-medium text-navy-100 mb-2">Nama Lengkap</label>
+                            <input type="text" id="name" required placeholder="Masukkan nama Anda" class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-navy-800 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-xs font-medium text-navy-100 mb-2">Alamat Email</label>
+                            <input type="email" id="email" required placeholder="nama@email.com" class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-navy-800 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-xs font-medium text-navy-100 mb-2">Pesan atau Keperluan</label>
+                            <textarea id="message" rows="4" required placeholder="Tuliskan pesan, tawaran kerja, atau proyek Anda..." class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-navy-800 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-all shadow-lg shadow-blue-600/30 flex items-center justify-center space-x-2">
+                            <span>Kirim Pesan Sekarang</span>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 border-t border-navy-800/80 py-12 px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white text-xs">
+                    PR
+                </div>
+                <span class="font-bold text-sm text-white">Pury Retno Mutia Satriyanto</span>
+            </div>
+            
+            <p class="text-xs text-navy-100/50">
+                &copy; 2026 Pury Retno Mutia Satriyanto. Hak Cipta Dilindungi. Perekam Medis & Informasi Kesehatan.
+            </p>
+
+            <a href="#hero" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-navy-100 hover:text-white hover:border-blue-500 transition-all">
+                <i class="fa-solid fa-arrow-up text-xs"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Project Detail Modal -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+        <div class="bg-navy-900 border border-navy-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl animate-in fade-in zoom-in duration-200">
+            <button onclick="closeProjectModal()" class="absolute top-5 right-5 text-navy-100/60 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 id="modal-title" class="text-xl font-bold text-white mb-4 pr-8"></h3>
+            <p id="modal-desc" class="text-navy-100/80 text-sm leading-relaxed mb-6"></p>
+            <div class="flex justify-end">
+                <button onclick="closeProjectModal()" class="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition-all">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Modal Functions
+        function openProjectModal(title, description) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = description;
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Close modal on outside click
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('project-modal');
+            if (e.target === modal) {
+                closeProjectModal();
+            }
+        });
+
+        // Form Submit Handler (Custom Toast without alert)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.innerText = `Terima kasih ${name}, pesan Anda telah terkirim!`;
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            document.getElementById('contact-form').reset();
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
